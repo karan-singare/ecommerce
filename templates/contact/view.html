@@ -21,6 +21,14 @@
 
             <form class="" method="post">
               {% csrf_token %}
+              {{ form }}
+              <button type="submit" name="button" class="btn btn-default">Submit</button>
+            </form>
+
+
+
+            <!-- <form class="" method="post">
+              {% csrf_token %}
               <div class="form-group">
                 <input type="text" name="full_name" placeholder="Name" value="" class="form-control">
               </div>
@@ -31,7 +39,7 @@
                 <textarea name="content"  class="form-control" placeholder="Content"></textarea>
               </div>
               <button type="submit" name="button" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
 
           </div>
 
