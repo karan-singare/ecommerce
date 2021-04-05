@@ -157,5 +157,6 @@ Thumbs.db #thumbnail cache on Windows
 # profiling data
 .prof
 
+# Ignoring the static files inside static_cdn
 
 # End of https://www.toptal.com/developers/gitignore/api/django
