@@ -4,21 +4,18 @@ class ContactForm(forms.Form):
     full_name = forms.CharField(
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'id': 'form_full_name',
             'placeholder': 'Your Full Name'
         })
     )
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={
             'class': 'form-control',
-            'id': 'form_email',
             'placeholder': 'Your Email'
         })
     )
     content = forms.CharField(
         widget=forms.Textarea(attrs={
             'class': 'form-control',
-            'id': 'form_content',
             'placeholder': 'Your Content'
         })
     )
@@ -28,3 +25,19 @@ class ContactForm(forms.Form):
         if not 'gmail.com' in email:
             raise forms.ValidationError("This is not a valid Gmail account.")
         return email
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control'
+        })
+    )
+
+class RegisterForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control'
+        })
+    )

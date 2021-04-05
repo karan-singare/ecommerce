@@ -21,9 +21,8 @@
         <br><br>
         <div class="col-sm-6 col-12">
 
-          <form class="" method="post">
+          <!-- <form class="" method="post">
             {% csrf_token %}
-
 
             {% for field in form.hidden_fields %}
               {{ field }}
@@ -36,6 +35,15 @@
             {% endfor %}
 
             <button type="submit" name="button" class="btn btn-default">Submit</button>
+          </form> -->
+
+          <form class="" method="post">
+              {% csrf_token %}
+              
+              {{ form }}
+
+              <button type="submit" name="button" class="btn btn-default">Submit</button>
+
           </form>
 
         </div>

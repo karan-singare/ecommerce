@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .forms import ContactForm
+from .forms import ContactForm, LoginForm, RegisterForm
+
 
 def home_page_old(request):
     return HttpResponse("Hello World")
@@ -28,10 +29,22 @@ def contact_page(request):
     };
     if contact_form.is_valid():
         print(contact_form.cleaned_data)
-    # if request.method == 'POST':
-    #     print(request.POST)
-    #     print(request.POST.get('full_name'))
-    #     print(request.POST.get('email'))
-    #     print(request.POST.get('content'))
-
     return render(request, "contact/view.html", context=data)
+
+def login_page(request):
+    form = LoginForm(request.POST or None)
+    data = {
+        'form': form
+    }
+    print(request.user.is_authenticated)
+    if form.is_valid():
+        print(form.cleaned_data)
+        # resetting the form with empty context
+        data['form'] = LoginForm()
+    return render(request, 'auth/login.html', context=data)
+
+def register_page(request):
+    form = RegisterForm(request.POST or None)
+    if form.is_valid():
+        print(form.cleaned_data)
+    return render(request, 'auth/register.html', {})
