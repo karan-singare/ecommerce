@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
     <title>Hello, world!</title>
   </head>
@@ -15,10 +17,12 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          {{ content }}
+          <img src="{% static 'img/beach.jpg' %}" alt="" class="img-fluid">
+          <p>{{ content }}</p>
+
         </div>
       </div>
-      
+
       {%  if request.user.is_authenticated %}
       <div class="row">
         <div class="col">
