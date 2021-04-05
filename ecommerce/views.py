@@ -13,6 +13,10 @@ def home_page(request):
         'title': 'Hello World!',
         'content': 'Welcome to the Home Page.'
     };
+
+    if request.user.is_authenticated:
+        data['premium_content'] =  'This is the content for premium members.'
+
     return render(request, "home_page.html", context=data)
 
 def about_page(request):
